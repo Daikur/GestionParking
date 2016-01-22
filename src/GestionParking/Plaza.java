@@ -42,26 +42,27 @@ public class Plaza {
         return valido;
     }
 
-    public int precio(Vehiculo vehiculo, String sotano) {
+    public int precio() {
         int preciofinal = 0;
-
-        if (vehiculo instanceof Coche) {
-            Coche c = (Coche) vehiculo;
-            if (c.getTipo().equals("Largo") && sotano.equalsIgnoreCase("Segundo")) {
-
-            } else if (c.getTipo().equals("Corto") && sotano.equalsIgnoreCase("Segundo")) {
-
-            } else if (c.getTipo().equals("Largo")) {
-
-            } else if (c.getTipo().equals("Corto")) {
-
-            }
-        } else if (vehiculo instanceof Moto) {
-            Moto m = (Moto) vehiculo;
-            if (sotano.equalsIgnoreCase("Segundo")) {
-                
-            } else {
-                
+        if (vehiculo != null) {
+            if (vehiculo instanceof Coche) {
+                Coche c = (Coche) vehiculo;
+                if (c.getTipo().equals("Largo") && sotano.equalsIgnoreCase("Segundo")) {
+                    preciofinal = 60;
+                } else if (c.getTipo().equals("Corto") && sotano.equalsIgnoreCase("Segundo")) {
+                    preciofinal = 45;
+                } else if (c.getTipo().equals("Largo")) {
+                    preciofinal = 55;
+                } else if (c.getTipo().equals("Corto")) {
+                    preciofinal = 40;
+                }
+            } else if (vehiculo instanceof Moto) {
+                Moto m = (Moto) vehiculo;
+                if (sotano.equalsIgnoreCase("Segundo")) {
+                    preciofinal = 30;
+                } else {
+                    preciofinal = 25;
+                }
             }
         }
         return preciofinal;
