@@ -3,12 +3,12 @@ package GestionParking;
 public class Plaza {
 
     private int numplaza;
-    private String sotano;
+    private int sotano;
     private char tipo;
     private Vehiculo vehiculo;
  
 
-    public Plaza(int numplaza, String sotano) {
+    public Plaza(int numplaza, int sotano) {
         this.numplaza = numplaza;
         this.sotano = sotano;
         //this.vehiculo = vehiculo;
@@ -30,11 +30,11 @@ public class Plaza {
         this.numplaza = numplaza;
     }
 
-    public String getSotano() {
+    public int getSotano() {
         return sotano;
     }
 
-    public void setSotano(String sotano) {
+    public void setSotano(int sotano) {
         this.sotano = sotano;
     }
 
@@ -56,9 +56,9 @@ public class Plaza {
         if (vehiculo != null) {
             if (vehiculo instanceof Coche) {
                 Coche c = (Coche) vehiculo;
-                if (c.getTipo().equalsIgnoreCase("Largo") && sotano.equalsIgnoreCase("Segundo")) {
+                if (c.getTipo().equalsIgnoreCase("Largo") && sotano == 2) {
                     preciofinal = 60;
-                } else if (c.getTipo().equalsIgnoreCase("Corto") && sotano.equalsIgnoreCase("Segundo")) {
+                } else if (c.getTipo().equalsIgnoreCase("Corto") && sotano == 2) {
                     preciofinal = 45;
                 } else if (c.getTipo().equalsIgnoreCase("Largo")) {
                     preciofinal = 55;
@@ -67,7 +67,7 @@ public class Plaza {
                 }
             } else if (vehiculo instanceof Moto) {
                 Moto m = (Moto) vehiculo;
-                if (sotano.equalsIgnoreCase("Segundo")) {
+                if (sotano == 2) {
                     preciofinal = 30;
                 } else {
                     preciofinal = 25;
@@ -79,7 +79,7 @@ public class Plaza {
 
     @Override
     public String toString() {
-        return "NºPlaza: " + numplaza + " Sótano: " + sotano + " Vehículo: " + super.toString() + " Precio: " + precio();
+        return "NºPlaza: " + numplaza + " Sótano: " + sotano + " Vehículo: " + vehiculo.toString() + " Precio: " + precio();
     }
 
 }
