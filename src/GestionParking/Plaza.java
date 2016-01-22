@@ -6,12 +6,21 @@ public class Plaza {
     private String sotano;
     private char tipo;
     private Vehiculo vehiculo;
+ 
 
     public Plaza(int numplaza, String sotano) {
         this.numplaza = numplaza;
         this.sotano = sotano;
         //this.vehiculo = vehiculo;
     }
+
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
+
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
+    }    
 
     public int getNumplaza() {
         return numplaza;
@@ -47,13 +56,13 @@ public class Plaza {
         if (vehiculo != null) {
             if (vehiculo instanceof Coche) {
                 Coche c = (Coche) vehiculo;
-                if (c.getTipo().equals("Largo") && sotano.equalsIgnoreCase("Segundo")) {
+                if (c.getTipo().equalsIgnoreCase("Largo") && sotano.equalsIgnoreCase("Segundo")) {
                     preciofinal = 60;
-                } else if (c.getTipo().equals("Corto") && sotano.equalsIgnoreCase("Segundo")) {
+                } else if (c.getTipo().equalsIgnoreCase("Corto") && sotano.equalsIgnoreCase("Segundo")) {
                     preciofinal = 45;
-                } else if (c.getTipo().equals("Largo")) {
+                } else if (c.getTipo().equalsIgnoreCase("Largo")) {
                     preciofinal = 55;
-                } else if (c.getTipo().equals("Corto")) {
+                } else if (c.getTipo().equalsIgnoreCase("Corto")) {
                     preciofinal = 40;
                 }
             } else if (vehiculo instanceof Moto) {
@@ -67,4 +76,10 @@ public class Plaza {
         }
         return preciofinal;
     }
+
+    @Override
+    public String toString() {
+        return "NºPlaza: " + numplaza + " Sótano: " + sotano + " Vehículo: " + super.toString() + " Precio: " + precio();
+    }
+
 }
