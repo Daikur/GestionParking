@@ -7,7 +7,7 @@ public class Parking {
     private String nombreparking;
     private String direccion;
     private Map<String, Plaza> alquiler = new HashMap<>();
-
+    
     public Parking(String nombreparking) {
         this.nombreparking = nombreparking;
     }
@@ -34,7 +34,5 @@ public class Parking {
 
     public void setAlquiler(Map<String, Plaza> alquiler) {
         this.alquiler = alquiler;
-    }
-    
-    
+    } 
 }

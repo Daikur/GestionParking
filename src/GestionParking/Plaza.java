@@ -8,7 +8,7 @@ public class Plaza {
     private Vehiculo vehiculo;
  
 
-    public Plaza(int numplaza, int sotano) {
+    public Plaza(int sotano, int numplaza) {
         this.numplaza = numplaza;
         this.sotano = sotano;
         //this.vehiculo = vehiculo;
