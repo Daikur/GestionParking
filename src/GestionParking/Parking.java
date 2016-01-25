@@ -68,21 +68,22 @@ public class Parking {
     }
 
     public String alquilar(Vehiculo vehiculo) {
-        String ssn = "";
+        String snn = "";
         //do {
-            Iterator<String> it = plazas.keySet().iterator();
-            while (it.hasNext()) {
-                ssn = it.next();
-                if (plazas.get(ssn).getVehiculo().getMatricula() == null){
-                    if ( vehiculo instanceof Coche && plazas.get(ssn).getTipo() == 'C'){
-                        plazas.entrySet();
-                    }
+        Iterator<String> it = plazas.keySet().iterator();
+        while (it.hasNext()) {
+            snn = it.next();
+            if (plazas.get(snn).getVehiculo().getMatricula() == null) {
+                if (vehiculo instanceof Coche && plazas.get(snn).getTipo() == 'C') {
+                    plazas.get(snn).setVehiculo(vehiculo);
+                } else if (vehiculo instanceof Moto && plazas.get(snn).getTipo() == 'M') {
+                    plazas.get(snn).setVehiculo(vehiculo);
                 }
             }
+        }
 
-         //while (plazas.get(ssn).getVehiculo().getMatricula() != null);
-        
-        return "Numero plaza: " + ssn + " Vehiculo: " + plazas.get(ssn).getVehiculo().getMatricula();
+         //while (plazas.get(snn).getVehiculo().getMatricula() != null);
+        return "Numero plaza: " + snn + " Vehiculo: " + plazas.get(snn).getVehiculo().getMatricula();
 
     }
 }
