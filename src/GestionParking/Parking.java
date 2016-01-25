@@ -40,7 +40,6 @@ public class Parking {
         plazas.put("22", p6);
         plazas.put("23", p7);
         plazas.put("24", p8);
-
     }
 
     public String getNombreparking() {
@@ -68,22 +67,25 @@ public class Parking {
     }
 
     public String alquilar(Vehiculo vehiculo) {
-        String snn = "";
-        //do {
-        Iterator<String> it = plazas.keySet().iterator();
-        while (it.hasNext()) {
-            snn = it.next();
-            if (plazas.get(snn).getVehiculo().getMatricula() == null) {
-                if (vehiculo instanceof Coche && plazas.get(snn).getTipo() == 'C') {
-                    plazas.get(snn).setVehiculo(vehiculo);
-                } else if (vehiculo instanceof Moto && plazas.get(snn).getTipo() == 'M') {
-                    plazas.get(snn).setVehiculo(vehiculo);
-                }
+        boolean alquilada = false;
+        Plaza aux;
+        String resultado = null;
+
+        Iterator<String> it = this.plazas.keySet().iterator();
+        while (it.hasNext() && alquilada == false) {
+            aux = this.plazas.get(it.next());
+            String conversor = ("" + aux.getTipo());
+            if (vehiculo instanceof Coche && conversor.equalsIgnoreCase("C") && aux.getVehiculo() == null) {
+                aux.setVehiculo(vehiculo);
+                alquilada = true;
+                resultado = (aux.getSotano() + " " + aux.getNumplaza());
+            } else if (vehiculo instanceof Moto && conversor.equalsIgnoreCase("M") && aux.getVehiculo() == null) {
+                aux.setVehiculo(vehiculo);
+                alquilada = true;
+                resultado = (aux.getSotano() + " " + aux.getNumplaza());
             }
         }
-
-         //while (plazas.get(snn).getVehiculo().getMatricula() != null);
-        return "Numero plaza: " + snn + " Vehiculo: " + plazas.get(snn).getVehiculo().getMatricula();
-
+        return resultado;
     }
+    
 }
