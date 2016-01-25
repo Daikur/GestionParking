@@ -40,6 +40,7 @@ public class Parking {
         plazas.put("22", p6);
         plazas.put("23", p7);
         plazas.put("24", p8);
+
     }
 
     public String getNombreparking() {
@@ -66,15 +67,22 @@ public class Parking {
         this.plazas = plazas;
     }
 
-//    public String alquilar(Vehiculo vehiculo) {
-//
-//        do {
-//            Iterator<String> it = plazas.keySet().iterator();
-//            while(it.hasNext()) {
-//                String ssn = it.next();
-//                
-//            }
-//            
-//        } while (plazas.get(Plaza) != null);
-//    }
+    public String alquilar(Vehiculo vehiculo) {
+        String ssn = "";
+        //do {
+            Iterator<String> it = plazas.keySet().iterator();
+            while (it.hasNext()) {
+                ssn = it.next();
+                if (plazas.get(ssn).getVehiculo().getMatricula() == null){
+                    if ( vehiculo instanceof Coche && plazas.get(ssn).getTipo() == 'C'){
+                        plazas.entrySet();
+                    }
+                }
+            }
+
+         //while (plazas.get(ssn).getVehiculo().getMatricula() != null);
+        
+        return "Numero plaza: " + ssn + " Vehiculo: " + plazas.get(ssn).getVehiculo().getMatricula();
+
+    }
 }

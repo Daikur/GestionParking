@@ -16,4 +16,10 @@ public class Moto extends Vehiculo {
     public void setNumruedas(int numruedas) {
         this.numruedas = numruedas;
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+ "num ruedas: "+numruedas;
+    }
+ 
 }

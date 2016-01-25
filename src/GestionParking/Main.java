@@ -18,11 +18,13 @@ public class Main {
         plazas.put("d", 1);
         plazas.put("e", 1);
 
-        Iterator<String> it = plazas.keySet().iterator();
-        while (it.hasNext()) {
-            String ssn = it.next();
-            System.out.println(ssn + " " + plazas.get(ssn));
-        }
+        //System.out.println(pk1.alquilar());
+        
+//        Iterator<String> it = plazas.keySet().iterator();
+//        while (it.hasNext()) {
+//            String ssn = it.next();
+//            System.out.println(ssn + " " + plazas.get(ssn));
+//        }
 
     }
 }
