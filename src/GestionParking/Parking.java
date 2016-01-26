@@ -1,7 +1,9 @@
 package GestionParking;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 public class Parking {
@@ -32,14 +34,14 @@ public class Parking {
         Plaza p8 = new Plaza(2, 4);
         p8.setTipo('M');
         p8.setVehiculo(new Moto("123514", "D123122", 2));
-        plazas.put("11", p1);
-        plazas.put("12", p2);
-        plazas.put("13", p3);
-        plazas.put("14", p4);
-        plazas.put("21", p5);
-        plazas.put("22", p6);
-        plazas.put("23", p7);
-        plazas.put("24", p8);
+        plazas.put(p1.snn(), p1);
+        plazas.put(p2.snn(), p2);
+        plazas.put(p3.snn(), p3);
+        plazas.put(p4.snn(), p4);
+        plazas.put(p5.snn(), p5);
+        plazas.put(p6.snn(), p6);
+        plazas.put(p7.snn(), p7);
+        plazas.put(p8.snn(), p8);
     }
 
     public String getNombreparking() {
@@ -87,5 +89,17 @@ public class Parking {
         }
         return resultado;
     }
-    
+
+    public List<Plaza> listarPlazas(String estado, char tipoVehiculo) {
+        List<Plaza> listaPlazas = new ArrayList<>();
+        for (Plaza plaza : listaPlazas) {
+            if (estado.equalsIgnoreCase("Libres") && plaza.getVehiculo()== null && tipoVehiculo == plaza.getTipo()) {
+                listaPlazas.add(plaza);
+            }
+            if (estado.equalsIgnoreCase("Ocupadas") && plaza.getVehiculo() != null && tipoVehiculo == plaza.getTipo()) {
+                listaPlazas.add(plaza);
+            }
+        }
+        return listaPlazas;
+    }
 }

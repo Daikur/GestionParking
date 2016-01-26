@@ -26,6 +26,8 @@ public class GestionParking {
         System.out.println(pk1.alquilar(m6));
         System.out.println(pk1.alquilar(m7));
         System.out.println(pk1.alquilar(c8));
+        
+
 //        try {
 //            Scanner sc = new Scanner(System.in);
 //            int menu;

@@ -81,5 +81,10 @@ public class Plaza {
     public String toString() {
         return "NºPlaza: " + numplaza + " Sótano: " + sotano + " Vehículo: " + vehiculo.toString() + " Precio: " + precio();
     }
+    
+    public String snn() {
+        String conversion = Integer.toString(this.sotano)+Integer.toString(this.numplaza);   
+        return conversion;
+}
 
 }
