@@ -52,19 +52,16 @@ public class GestionParking {
                                     System.out.println("Matricula del vehiculo: ");
                                     String matricula = sc1.nextLine();
 
-                                    System.out.println("Tipo de Coche: ");
-                                    String tipoCoche = sc1.nextLine();
+                                    String tipoCoche = null;
                                     boolean comprobacion = false;
-                                    //BUG
-                                    if (!tipoCoche.equalsIgnoreCase("Largo") || !tipoCoche.equalsIgnoreCase("Corto")) {
-                                        do {
-                                            System.out.println("Tipo de Coche: ");
-                                            tipoCoche = sc1.nextLine();
-                                            if (tipoCoche.equalsIgnoreCase("Largo") || tipoCoche.equalsIgnoreCase("Corto")) {
-                                                comprobacion = true;
-                                            }
-                                        } while (comprobacion == false);
-                                    }
+                                    
+                                    do {
+                                        System.out.println("Tipo de Coche: ");
+                                        tipoCoche = sc1.nextLine();
+                                        if (tipoCoche.equalsIgnoreCase("Largo") || tipoCoche.equalsIgnoreCase("Corto")) {
+                                            comprobacion = true;
+                                        }
+                                    } while (comprobacion == false);
 
                                     for (int i = 0; i < 50; ++i) { //
                                         System.out.println();      //Limpiado de pantalla
@@ -141,7 +138,7 @@ public class GestionParking {
                         }                              //
                         System.out.println("!-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-!");
                         System.out.print("!-*-  Ganancias actuales: ");
-                        System.out.printf("%-7s", pk1.ganancias() +"€");
+                        System.out.printf("%-7s", pk1.ganancias() + "€");
                         System.out.println("-*-!");
                         System.out.println("!-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-!");
                         System.out.println("");
@@ -158,7 +155,7 @@ public class GestionParking {
             } while (menu != 4);
 
         } catch (Exception e) {
-            System.out.println("Ha saltado la siguiente excepción" + e);
+            System.out.println("Ha saltado la siguiente excepción: " + e);
         }
     }
 }
