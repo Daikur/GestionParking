@@ -43,7 +43,7 @@ public class GestionParking {
                                 if (pk1.listarPlazas("Libres", charCoche).isEmpty() == true) {
                                     for (int i = 0; i < 50; ++i) { //
                                         System.out.println();      //Limpiado de pantalla
-                                    }
+                                    }                              //
                                     System.out.println("No quedan plazas disponibles para Coches, Parking Completo.");
                                     System.out.println("");
                                 } else {
@@ -55,6 +55,7 @@ public class GestionParking {
                                     System.out.println("Tipo de Coche: ");
                                     String tipoCoche = sc1.nextLine();
                                     boolean comprobacion = false;
+                                    //BUG
                                     if (!tipoCoche.equalsIgnoreCase("Largo") || !tipoCoche.equalsIgnoreCase("Corto")) {
                                         do {
                                             System.out.println("Tipo de Coche: ");
@@ -67,7 +68,7 @@ public class GestionParking {
 
                                     for (int i = 0; i < 50; ++i) { //
                                         System.out.println();      //Limpiado de pantalla
-                                    }
+                                    }                              //
 
                                     System.out.println("Al coche se le ha asignado la siguiente plaza: ");
                                     System.out.println(pk1.alquilar(new Coche(nif, matricula, tipoCoche)));
@@ -80,7 +81,7 @@ public class GestionParking {
                                 if (pk1.listarPlazas("Libres", charMoto).isEmpty() == true) {
                                     for (int i = 0; i < 50; ++i) { //
                                         System.out.println();      //Limpiado de pantalla
-                                    }
+                                    }                              //
                                     System.out.println("No quedan plazas disponibles para Motos, Parking Completo.");
                                     System.out.println("");
                                 } else {
@@ -93,7 +94,7 @@ public class GestionParking {
 
                                     for (int i = 0; i < 50; ++i) { //
                                         System.out.println();      //Limpiado de pantalla
-                                    }
+                                    }                              //
 
                                     System.out.println("A la Moto se le ha asignado la siguiente plaza: ");
                                     System.out.println(pk1.alquilar(new Moto(nif, matricula, numeroRuedas)));
@@ -107,15 +108,51 @@ public class GestionParking {
 
                         break;
                     case 2:
+                        for (int i = 0; i < 50; ++i) { //
+                            System.out.println();      //Limpiado de pantalla
+                        }                              //
+                        Scanner sc1 = new Scanner(System.in);
+                        int darbaja;
+                        System.out.println("Plaza para dar de baja: ");
+                        darbaja = sc1.nextInt();
+                        if (pk1.darBaja(darbaja) == 0) {
+                            for (int i = 0; i < 50; ++i) { //
+                                System.out.println();      //Limpiado de pantalla
+                            }                              //
+                            System.out.println("Se ha dado de baja la plaza correctamente");
+                            System.out.println("");
+                        } else if (pk1.darBaja(darbaja) == 2) {
+                            for (int i = 0; i < 50; ++i) { //
+                                System.out.println();      //Limpiado de pantalla
+                            }                              //
+                            System.out.println("Dicha plaza esta libre y no se puede dar de baja.");
+                            System.out.println("");
+                        } else {
+                            for (int i = 0; i < 50; ++i) { //
+                                System.out.println();      //Limpiado de pantalla
+                            }                              //
+                            System.out.println("Dicha plaza no existe.");
+                            System.out.println("");
+                        }
                         break;
                     case 3:
+                        for (int i = 0; i < 50; ++i) { //
+                            System.out.println();      //Limpiado de pantalla
+                        }                              //
+                        System.out.println("!-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-!");
+                        System.out.print("!-*-  Ganancias actuales: ");
+                        System.out.printf("%-7s", pk1.ganancias() +"€");
+                        System.out.println("-*-!");
+                        System.out.println("!-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-!");
+                        System.out.println("");
+                        System.out.println("");
                         break;
                     case 4:
                         break;
                     default:
                         for (int i = 0; i < 50; ++i) { //
                             System.out.println();      //Limpiado de pantalla
-                        }
+                        }                              //
 
                 }
             } while (menu != 4);
