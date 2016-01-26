@@ -16,18 +16,20 @@ public class GestionParking {
         Moto m5 = new Moto("1231", "C123512", 3);
         Moto m6 = new Moto("1231", "C123512", 3);
         Moto m7 = new Moto("1231", "C123512", 3);
-        System.out.println(pk1.alquilar(c4));
-        System.out.println(pk1.alquilar(c5));
-        System.out.println(pk1.alquilar(c6));
-        System.out.println(pk1.alquilar(c7));
-        System.out.println("");
-        System.out.println(pk1.alquilar(m4));
-        System.out.println(pk1.alquilar(m5));
-        System.out.println(pk1.alquilar(m6));
-        System.out.println(pk1.alquilar(m7));
-        System.out.println(pk1.alquilar(c8));
+//        System.out.println(pk1.alquilar(c4));
+//        System.out.println(pk1.alquilar(c5));
+//        System.out.println(pk1.alquilar(c6));
+//        System.out.println(pk1.alquilar(c7));
+//        System.out.println("");
+//        System.out.println(pk1.alquilar(m4));
+//        System.out.println(pk1.alquilar(m5));
+//        System.out.println(pk1.alquilar(m6));
+//        System.out.println(pk1.alquilar(m7));
+//        System.out.println(pk1.alquilar(c8));
         
-
+        System.out.println(pk1.darBaja(83));
+        System.out.println(pk1.listarPlazas("Libres", 'C'));
+        System.out.println(pk1.ganancias()+"€");
 //        try {
 //            Scanner sc = new Scanner(System.in);
 //            int menu;

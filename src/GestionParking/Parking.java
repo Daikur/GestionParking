@@ -22,6 +22,8 @@ public class Parking {
         Plaza p3 = new Plaza(1, 3);
         p3.setTipo('C');
         p3.setVehiculo(new Coche("123123", "A123123", "Largo"));
+        p3.getVehiculo().setColor("Azul");
+        p3.getVehiculo().setModelo("Seat Ibiza");
         Plaza p4 = new Plaza(1, 4);
         p4.setTipo('C');
         Plaza p5 = new Plaza(2, 1);
@@ -90,16 +92,57 @@ public class Parking {
         return resultado;
     }
 
+    public int darBaja(int numPlaza) {
+        boolean alquilada = false;
+        Plaza plaza;
+        int resultado = 1;
+        String nPlaza = Integer.toString(numPlaza);
+
+        Iterator<String> snn = this.plazas.keySet().iterator();
+        while (snn.hasNext() && alquilada == false) {
+            plaza = this.plazas.get(snn.next());
+            if (plaza.snn().equals(nPlaza)) {
+                alquilada = true;
+                if (plaza.getVehiculo() != null) {
+                    plaza.setVehiculo(null);
+                    resultado = 0;
+                } else if (plaza.getVehiculo() == null) {
+                    resultado = 2;
+                }
+
+            }
+
+        }
+        return resultado;
+    }
+
     public List<Plaza> listarPlazas(String estado, char tipoVehiculo) {
+        Plaza plaza;
         List<Plaza> listaPlazas = new ArrayList<>();
-        for (Plaza plaza : listaPlazas) {
-            if (estado.equalsIgnoreCase("Libres") && plaza.getVehiculo()== null && tipoVehiculo == plaza.getTipo()) {
+        Iterator<String> it = plazas.keySet().iterator();
+        while (it.hasNext()) {
+            plaza = plazas.get(it.next());
+            if (estado.equalsIgnoreCase("Libres") && plaza.getVehiculo() == null && plaza.getTipo() == tipoVehiculo) {
                 listaPlazas.add(plaza);
             }
             if (estado.equalsIgnoreCase("Ocupadas") && plaza.getVehiculo() != null && tipoVehiculo == plaza.getTipo()) {
                 listaPlazas.add(plaza);
             }
         }
+
         return listaPlazas;
+    }
+
+    public int ganancias() {
+        int cantidadCoches = 0;
+        int cantidadMotos = 0;
+        for (Plaza listaP : listarPlazas("Ocupadas", 'C')) {
+            cantidadCoches += listaP.precio();
+        }
+        for (Plaza listaP : listarPlazas("Ocupadas", 'M')) {
+            cantidadMotos += listaP.precio();
+        }
+
+        return cantidadCoches + cantidadMotos;
     }
 }

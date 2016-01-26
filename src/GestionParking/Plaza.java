@@ -79,7 +79,13 @@ public class Plaza {
 
     @Override
     public String toString() {
-        return "NºPlaza: " + numplaza + " Sótano: " + sotano + " Vehículo: " + vehiculo.toString() + " Precio: " + precio();
+        String respuesta = "";
+        if (vehiculo == null){
+            respuesta = "NºPlaza: " + numplaza + " Sótano: " + sotano;
+        } else {
+            respuesta = "NºPlaza: " + numplaza + " Sótano: " + sotano + " Vehículo: " + vehiculo.toString() + " Precio: " + precio();
+        }
+        return respuesta;
     }
     
     public String snn() {
