@@ -56,9 +56,9 @@ public class Plaza {
         if (vehiculo != null) {
             if (vehiculo instanceof Coche) {
                 Coche c = (Coche) vehiculo;
-                if (c.getTipo().equalsIgnoreCase("Largo") && sotano == 2) {
+                if (c.getTipo().equalsIgnoreCase("Largo") && sotano >= 2) {
                     preciofinal = 60;
-                } else if (c.getTipo().equalsIgnoreCase("Corto") && sotano == 2) {
+                } else if (c.getTipo().equalsIgnoreCase("Corto") && sotano >= 2) {
                     preciofinal = 45;
                 } else if (c.getTipo().equalsIgnoreCase("Largo")) {
                     preciofinal = 55;

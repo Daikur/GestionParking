@@ -10,7 +10,7 @@ public class Parking {
 
     private String nombreparking;
     private String direccion;
-    private Map<String, Plaza> plazas = new HashMap<>();
+    protected Map<String, Plaza> plazas = new HashMap<>();
 
     public Parking(String nombreparking) {
         this.nombreparking = nombreparking;
