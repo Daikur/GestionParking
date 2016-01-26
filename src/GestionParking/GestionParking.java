@@ -18,9 +18,9 @@ public class GestionParking {
                 System.out.println("<--------------------------------->");
                 System.out.println("<      1. Alguiler de Plaza       >");
                 System.out.println("<      2. Dar de Baja Plaza       >");
-                System.out.println("<        3. Dinero ganado         >");
+                System.out.println("<         3. Beneficios           >");
                 System.out.println("<           4 Submenu             >");
-                System.out.println("<            5 Ciere              >");
+                System.out.println("<            5 Cierre             >");
                 System.out.println("<--*--*--*--*--*-*-*--*--*--*--*-->");
 
                 menu = sc.nextInt();
@@ -229,7 +229,6 @@ public class GestionParking {
                         for (int i = 0; i < 50; ++i) { //
                             System.out.println();      //Limpiado de pantalla
                         }                              //
-
                 }
             } while (menu != 5);
 
