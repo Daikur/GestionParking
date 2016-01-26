@@ -82,11 +82,11 @@ public class Parking {
             if (vehiculo instanceof Coche && conversor.equalsIgnoreCase("C") && aux.getVehiculo() == null) {
                 aux.setVehiculo(vehiculo);
                 alquilada = true;
-                resultado = (aux.getSotano() + " " + aux.getNumplaza());
+                resultado = (aux.getSotano() + "" + aux.getNumplaza());
             } else if (vehiculo instanceof Moto && conversor.equalsIgnoreCase("M") && aux.getVehiculo() == null) {
                 aux.setVehiculo(vehiculo);
                 alquilada = true;
-                resultado = (aux.getSotano() + " " + aux.getNumplaza());
+                resultado = (aux.getSotano() + "" + aux.getNumplaza());
             }
         }
         return resultado;
