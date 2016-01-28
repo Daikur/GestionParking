@@ -1,6 +1,8 @@
 package GestionParking;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class GestionParking {
 
@@ -35,7 +37,7 @@ public class GestionParking {
                         do {
                             Scanner sc1 = new Scanner(System.in);
 
-                            System.out.println("Tipo de vehiculo: ");
+                            System.out.print("Tipo de vehiculo: ");
                             String tipoVehiculo = sc1.nextLine();
                             if (tipoVehiculo.equalsIgnoreCase("Coche") || tipoVehiculo.equalsIgnoreCase("C")) {
                                 correcto = true;
@@ -48,14 +50,33 @@ public class GestionParking {
                                     System.out.println("No quedan plazas disponibles para Coches, Parking Completo.");
                                     System.out.println("");
                                 } else {
-                                    System.out.print("Numero NIF: ");
-                                    String nif = sc1.nextLine();
-                                    System.out.print("Matricula del vehiculo: ");
-                                    String matricula = sc1.nextLine();
+
+                                    boolean comprobacion2 = false;
+                                    String nif;
+                                    do {
+                                        System.out.print("Numero NIF: ");
+                                        nif = sc1.nextLine();
+                                        Pattern dniPattern = Pattern.compile("(\\d{8})([TRWAGMYFPDXBNJZSQVHLCKE])");
+                                        Matcher m = dniPattern.matcher(nif);
+                                        if (m.matches()) {
+                                            comprobacion2 = true;
+                                        }
+                                    } while (comprobacion2 == false);
+
+                                    boolean comprobacion3 = false;
+                                    String matricula;
+                                    do {
+                                        System.out.print("Matricula del Coche: ");
+                                        matricula = sc1.nextLine();
+                                        Pattern matriculaPattern = Pattern.compile("(\\d{4})([TRWAGMYFPDXBNJZSQVHLCKE]{3})");
+                                        Matcher m = matriculaPattern.matcher(matricula);
+                                        if (m.matches()) {
+                                            comprobacion3 = true;
+                                        }
+                                    } while (comprobacion3 == false);
 
                                     String tipoCoche = null;
                                     boolean comprobacion = false;
-
                                     do {
                                         System.out.print("Tipo de Coche: ");
                                         tipoCoche = sc1.nextLine();
@@ -83,10 +104,31 @@ public class GestionParking {
                                     System.out.println("No quedan plazas disponibles para Motos, Parking Completo.");
                                     System.out.println("");
                                 } else {
-                                    System.out.print("Numero NIF: ");
-                                    String nif = sc1.nextLine();
-                                    System.out.print("Matricula del vehiculo: ");
-                                    String matricula = sc1.nextLine();
+
+                                    String nif;
+                                    boolean comprobacion = false;
+                                    do {
+                                        System.out.print("Numero NIF: ");
+                                        nif = sc1.nextLine();
+                                        Pattern dniPattern = Pattern.compile("(\\d{8})([TRWAGMYFPDXBNJZSQVHLCKE])");
+                                        Matcher m = dniPattern.matcher(nif);
+                                        if (m.matches()) {
+                                            comprobacion = true;
+                                        }
+                                    } while (comprobacion == false);
+
+                                    boolean comprobacion2 = false;
+                                    String matricula;
+                                    do {
+                                        System.out.print("Matricula de la Moto: ");
+                                        matricula = sc1.nextLine();
+                                        Pattern matriculaPattern = Pattern.compile("(\\d{4})([TRWAGMYFPDXBNJZSQVHLCKE]{3})");
+                                        Matcher m = matriculaPattern.matcher(matricula);
+                                        if (m.matches()) {
+                                            comprobacion2 = true;
+                                        }
+                                    } while (comprobacion2 == false);
+
                                     System.out.print("Numero de Ruedas: ");
                                     int numeroRuedas = sc1.nextInt();
 
@@ -170,20 +212,32 @@ public class GestionParking {
                                     }                              //
 
                                     Scanner sc3 = new Scanner(System.in);
-                                    String newplaza;
+                                    Scanner sc4 = new Scanner(System.in);
                                     int numsotano,
                                      numplaza;
+                                    String tipoVehiculo;
                                     System.out.println(" Que plaza desea añadir ");
                                     System.out.println("------------------------");
-                                    System.out.print("Identificacion de plaza:");
-                                    newplaza = sc3.nextLine();
                                     System.out.print("Numero de Sotano: ");
                                     numsotano = sc3.nextInt();
                                     System.out.print("Numero de Plaza: ");
                                     numplaza = sc3.nextInt();
-                                    Plaza p9 = new Plaza(numsotano, numplaza);
-                                    pk1.plazas.put(p9.snn(), p9);
-
+                                    Plaza p = new Plaza(numsotano, numplaza);
+                                    pk1.plazas.put(p.snn(), p);
+                                    boolean comprobacion = false;
+                                    do {
+                                        System.out.print("Tipo de vehiculo Coche(C) o Moto(M): ");
+                                        tipoVehiculo = sc4.nextLine();
+                                        if (tipoVehiculo.equalsIgnoreCase("Coche") || tipoVehiculo.equalsIgnoreCase("C")) {
+                                            p.setTipo('C');
+                                            comprobacion = true;
+                                        } else if (tipoVehiculo.equalsIgnoreCase("Moto") || tipoVehiculo.equalsIgnoreCase("M")) {
+                                            p.setTipo('M');
+                                            comprobacion = true;
+                                        } else {
+                                            System.out.println("Este tipo de vehiculo no es admitido");
+                                        }
+                                    } while (comprobacion == false);
                                     for (int i = 0; i < 50; ++i) { //
                                         System.out.println();      //Limpiado de pantalla
                                     }                              //
@@ -196,12 +250,12 @@ public class GestionParking {
                                         System.out.println();      //Limpiado de pantalla
                                     }                              //
 
-                                    Scanner sc4 = new Scanner(System.in);
+                                    Scanner sc5 = new Scanner(System.in);
                                     String plaza;
                                     System.out.println(" Que plaza desea excluir");
                                     System.out.println("------------------------");
                                     System.out.print("Identificacion de plaza:");
-                                    plaza = sc4.nextLine();
+                                    plaza = sc5.nextLine();
                                     pk1.plazas.remove(plaza);
 
                                     for (int i = 0; i < 50; ++i) { //
@@ -230,6 +284,7 @@ public class GestionParking {
                             System.out.println();      //Limpiado de pantalla
                         }                              //
                 }
+
             } while (menu != 5);
 
         } catch (Exception e) {
