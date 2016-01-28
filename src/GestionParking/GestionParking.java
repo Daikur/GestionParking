@@ -21,7 +21,7 @@ public class GestionParking {
                 System.out.println("<-------! Gestion Parking !------->");
                 System.out.println("<--------------------------------->");
                 System.out.println("<      1. Alguiler de Plaza       >");
-                System.out.println("<      2. Dar de Baja Plaza       >");
+                System.out.println("<     2. Dar de Baja Alquiler     >");
                 System.out.println("<         3. Beneficios           >");
                 System.out.println("<           4 Submenu             >");
                 System.out.println("<            5 Cierre             >");
