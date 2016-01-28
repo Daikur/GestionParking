@@ -1,5 +1,7 @@
 package GestionParking;
 
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -278,6 +280,33 @@ public class GestionParking {
                         }                              //
                         break;
                     case 5:
+                        for (int i = 0; i < 50; ++i) { //
+                            System.out.println();      //Limpiado de pantalla
+                        }
+                        
+                        LocalDate hoy = LocalDate.now();
+                        String respuesta_C = "";
+                        String respuesta_M = "";
+                        int totalCoche = 0;
+                        int totalMoto = 0;
+                        List<Plaza> auxiliarCoche;
+                        List<Plaza> auxiliarMoto;
+                        auxiliarCoche = pk1.listarPlazas("Libres", 'C');
+                        auxiliarMoto = pk1.listarPlazas("Libres", 'M');
+                        for (Plaza plaza : auxiliarCoche) {
+                            respuesta_C += "\t" + "Nº Plaza: " + plaza.getNumplaza() + " Sótano: " + plaza.getSotano() + "\n";
+                            totalCoche++;
+                        }
+                        for (Plaza plaza : auxiliarMoto) {
+                            respuesta_M += "\t" + "Nº Plaza: " + plaza.getNumplaza() + " Sótano: " + plaza.getSotano() + "\n";
+                            totalMoto++;
+                        }
+                        int total = totalCoche + totalMoto;
+                        System.out.println("Listado de plazas libres de Coche a fecha " + hoy.toString());
+                        System.out.println(respuesta_C);
+                        System.out.println("Listado de plazas libres de Moto a fecha " + hoy.toString());
+                        System.out.println(respuesta_M);
+                        System.out.println("Total: " + total);
                         break;
                     default:
                         for (int i = 0; i < 50; ++i) { //
