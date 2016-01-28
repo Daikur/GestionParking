@@ -131,8 +131,15 @@ public class GestionParking {
                                         }
                                     } while (comprobacion2 == false);
 
-                                    System.out.print("Numero de Ruedas: ");
-                                    int numeroRuedas = sc1.nextInt();
+                                    boolean comprobacion3 = false;
+                                    int numeroRuedas;
+                                    do {
+                                        System.out.print("Numero de Ruedas: ");
+                                        numeroRuedas = sc1.nextInt();
+                                        if (numeroRuedas >= 2 && numeroRuedas <= 4) {
+                                            comprobacion3 = true;
+                                        }
+                                    } while (comprobacion3 == false);
 
                                     for (int i = 0; i < 50; ++i) { //
                                         System.out.println();      //Limpiado de pantalla
@@ -283,7 +290,7 @@ public class GestionParking {
                         for (int i = 0; i < 50; ++i) { //
                             System.out.println();      //Limpiado de pantalla
                         }
-                        
+
                         LocalDate hoy = LocalDate.now();
                         String respuesta_C = "";
                         String respuesta_M = "";
