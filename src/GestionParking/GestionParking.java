@@ -52,7 +52,7 @@ public class GestionParking {
                                     System.out.println("No quedan plazas disponibles para Coches, Parking Completo.");
                                     System.out.println("");
                                 } else {
-
+                                    System.out.println("");
                                     boolean comprobacion2 = false;
                                     String nif;
                                     do {
@@ -62,8 +62,12 @@ public class GestionParking {
                                         Matcher m = dniPattern.matcher(nif);
                                         if (m.matches()) {
                                             comprobacion2 = true;
+                                        } else {
+                                            System.out.println("");
+                                            System.out.println("El NIF se forma de 8 digitos y una Letra Mayuscula");
                                         }
                                     } while (comprobacion2 == false);
+                                    System.out.println("");
 
                                     boolean comprobacion3 = false;
                                     String matricula;
@@ -74,8 +78,12 @@ public class GestionParking {
                                         Matcher m = matriculaPattern.matcher(matricula);
                                         if (m.matches()) {
                                             comprobacion3 = true;
+                                        } else {
+                                            System.out.println("");
+                                            System.out.println("La matricula se forma de 4 digitos y 3 Letras mayusculas.");
                                         }
                                     } while (comprobacion3 == false);
+                                    System.out.println("");
 
                                     String tipoCoche = null;
                                     boolean comprobacion = false;
@@ -84,6 +92,9 @@ public class GestionParking {
                                         tipoCoche = sc1.nextLine();
                                         if (tipoCoche.equalsIgnoreCase("Largo") || tipoCoche.equalsIgnoreCase("Corto")) {
                                             comprobacion = true;
+                                        } else {
+                                            System.out.println("");
+                                            System.out.println("El tipo de coche debe de ser \"Largo\" o \"Corto\"");
                                         }
                                     } while (comprobacion == false);
 
@@ -106,7 +117,7 @@ public class GestionParking {
                                     System.out.println("No quedan plazas disponibles para Motos, Parking Completo.");
                                     System.out.println("");
                                 } else {
-
+                                    System.out.println("");
                                     String nif;
                                     boolean comprobacion = false;
                                     do {
@@ -116,8 +127,12 @@ public class GestionParking {
                                         Matcher m = dniPattern.matcher(nif);
                                         if (m.matches()) {
                                             comprobacion = true;
+                                        } else {
+                                            System.out.println("");
+                                            System.out.println("El NIF se forma de 8 digitos y una Letra Mayuscula");
                                         }
                                     } while (comprobacion == false);
+                                    System.out.println("");
 
                                     boolean comprobacion2 = false;
                                     String matricula;
@@ -128,8 +143,12 @@ public class GestionParking {
                                         Matcher m = matriculaPattern.matcher(matricula);
                                         if (m.matches()) {
                                             comprobacion2 = true;
+                                        } else {
+                                            System.out.println("");
+                                            System.out.println("La matricula se forma de 4 digitos y 3 Letras mayusculas.");
                                         }
                                     } while (comprobacion2 == false);
+                                    System.out.println("");
 
                                     boolean comprobacion3 = false;
                                     int numeroRuedas;
@@ -138,6 +157,10 @@ public class GestionParking {
                                         numeroRuedas = sc1.nextInt();
                                         if (numeroRuedas >= 2 && numeroRuedas <= 4) {
                                             comprobacion3 = true;
+                                        } else {
+                                            System.out.println("");
+                                            System.out.println("El número de ruedas tiene que ser entre 2 y 4 (incluidos).");
+                                            System.out.println("Una moto con sidecar se le asignará una plaza de Coche.");
                                         }
                                     } while (comprobacion3 == false);
 
@@ -150,7 +173,7 @@ public class GestionParking {
                                     System.out.println("");
                                 }
                             } else {
-                                System.out.println("El tipo de vehiculo debe ser un Coche o una Moto");
+                                System.out.println("El tipo de vehiculo debe ser un Coche o una Moto.");
                                 System.out.println("");
                             }
                         } while (correcto == false);
@@ -168,7 +191,7 @@ public class GestionParking {
                             for (int i = 0; i < 50; ++i) { //
                                 System.out.println();      //Limpiado de pantalla
                             }                              //
-                            System.out.println("Se ha dado de baja la plaza correctamente");
+                            System.out.println("Se ha dado de baja el alquiler correctamente");
                             System.out.println("");
                         } else if (pk1.darBaja(darbaja) == 2) {
                             for (int i = 0; i < 50; ++i) { //
